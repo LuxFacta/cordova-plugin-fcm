@@ -35,13 +35,9 @@ var name = getValue(config, "name")
 
 if (directoryExists("platforms/ios")) {
 	var path = "GoogleService-Info.plist";
-	console.log("FCMPlugin - Path", path);
-
     if (fileExists( path )) {
       try {
         var contents = fs.readFileSync(path).toString();
-        console.log("FCMPlugin - Contents", contents);
-        console.log("FCMPlugin - Write" + "platforms/ios/" + name + "/Resources/GoogleService-Info.plist");
         fs.writeFileSync("platforms/ios/" + name + "/Resources/GoogleService-Info.plist", contents)
       } catch(err) {
         process.stdout.write(err);
